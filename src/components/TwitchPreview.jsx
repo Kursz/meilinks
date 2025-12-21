@@ -5,6 +5,7 @@ function TwitchPreview() {
   const [isLive, setIsLive] = useState(false);
   const [streamData, setStreamData] = useState(null);
   const channelName = 'itsmeisol';
+  const parentDomain = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
 
   useEffect(() => {
     // Check if stream is live using Twitch embed
@@ -45,7 +46,7 @@ function TwitchPreview() {
       >
         <div className="twitch-embed-wrapper">
           <iframe
-            src={`https://player.twitch.tv/?channel=${channelName}&parent=localhost&muted=false`}
+            src={`https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&muted=false`}
             height="500"
             width="100%"
             allowFullScreen={true}
