@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './TwitchPreview.css';
 
 function TwitchPreview() {
   const [isLive, setIsLive] = useState(false);
   const [streamData, setStreamData] = useState(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const playerRef = useRef(null);
   const channelName = 'itsmeisol';
   const parentDomain = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
 
@@ -28,6 +30,14 @@ function TwitchPreview() {
     }
   };
 
+  const handleMouseEnter = () => {
+    setIsMuted(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsMuted(true);
+  };
+
   return (
     <section className="twitch-preview">
       <div className="section-header">
@@ -43,10 +53,14 @@ function TwitchPreview() {
         target="_blank"
         rel="noopener noreferrer"
         className="twitch-container"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="twitch-embed-wrapper">
           <iframe
-            src={`https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&muted=false`}
+            key={isMuted ? 'muted' : 'unmuted'}
+            ref={playerRef}
+            src={`https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&muted=${isMuted}&autoplay=true`}
             height="500"
             width="100%"
             allowFullScreen={true}
