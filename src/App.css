@@ -1,0 +1,155 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.app.fade-in {
+  opacity: 1;
+}
+
+/* Floating particles background */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--grass-green);
+  opacity: 0.3;
+  animation: float linear infinite;
+  box-shadow: 0 0 10px var(--grass-green);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+/* Common section styles */
+section {
+  margin-bottom: 0;
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-md);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Last section (Socials) shouldn't force full height so footer shows */
+section:last-of-type {
+  min-height: auto;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Last section (Socials) shouldn't force full height */
+section:last-of-type {
+  min-height: auto;
+  padding-bottom: 0;
+}
+
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-header h2 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: var(--cozy-cream);
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 3px 3px 0 var(--grass-green);
+}
+
+.header-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--grass-green), 
+    var(--emerald-green), 
+    var(--grass-green), 
+    transparent
+  );
+  margin: 0 auto;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-sm);
+  }
+  
+  section {
+    margin-bottom: var(--spacing-md);
+  }
+}

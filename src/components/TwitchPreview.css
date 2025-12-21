@@ -1,0 +1,83 @@
+.twitch-preview {
+  padding: var(--spacing-lg) 0;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.live-indicator {
+  display: inline-block;
+  margin-right: var(--spacing-sm);
+  color: var(--stone-gray);
+  font-size: 0.8em;
+  animation: pulse-slow 2s ease-in-out infinite;
+}
+
+.live-indicator.live {
+  color: #ff0000;
+  animation: pulse-live 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px #ff0000;
+  }
+  50% {
+    opacity: 0.6;
+    text-shadow: 0 0 20px #ff0000;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.twitch-container {
+  display: block;
+  text-decoration: none;
+  background: rgba(26, 26, 46, 0.6);
+  padding: var(--spacing-md);
+  border: 3px solid var(--grass-green);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.twitch-container:hover {
+  border-color: var(--emerald-green);
+  box-shadow: 0 15px 50px rgba(244, 197, 66, 0.4);
+  transform: translateY(-5px);
+}
+
+.twitch-embed-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  pointer-events: none;
+}
+
+.twitch-embed-wrapper iframe {
+  display: block;
+  border-radius: 10px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .twitch-preview {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .twitch-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .twitch-embed-wrapper iframe {
+    height: 300px;
+  }
+}

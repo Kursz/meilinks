@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Minecraft-inspired cozy colors with yellow accents */
+  --grass-green: #F4C542;
+  --dirt-brown: #8B6F47;
+  --wood-brown: #C49A6C;
+  --stone-gray: #7C7C7C;
+  --dark-oak: #4A3424;
+  --cozy-cream: #F5E6D3;
+  --warm-orange: #FFB84D;
+  --emerald-green: #FFD700;
+  --night-sky: #1a1a2e;
+  --grass-light: #FFE066;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.85) 100%), url('/assets/bg_landing_page.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--cozy-cream);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.pixelated {
+  font-family: 'Press Start 2P', cursive;
+  image-rendering: pixelated;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--grass-green);
+  color: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--night-sky);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grass-green);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grass-light);
+}
