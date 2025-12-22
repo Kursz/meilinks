@@ -1,4 +1,4 @@
-# Mei's Landing Page 🎮
+# Mei's Landing Page 
 
 A cozy Minecraft-themed landing page for streamers and content creators.
 
