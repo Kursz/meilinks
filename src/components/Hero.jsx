@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Hero.css';
 
 function Hero() {
+  const [clickCount, setClickCount] = useState(0);
+
+  const handleSymbolClick = () => {
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+    
+    if (newCount === 5) {
+      window.open('/secret.html', '_blank');
+      setClickCount(0); // Reset counter
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero-content">
@@ -19,7 +31,7 @@ function Hero() {
             🎮
           </div>
         </div>
-        <h1 className="glitch" data-text="Meisol 𖤓">Meisol<span className="symbol">𖤓</span></h1>
+        <h1 className="glitch" data-text="Meisol 𖤓">Meisol<span className="symbol" onClick={handleSymbolClick} style={{ cursor: 'pointer' }}>𖤓</span></h1>
         <p className="subtitle">Streamer • Content Creator • Minecraft Enthusiast</p>
         <div className="hero-decoration">
           <img src="/assets/bee.gif" alt="bee" className="bee bee-1" />
