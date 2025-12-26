@@ -17,18 +17,19 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md);
+  padding: 1.2rem 1.5rem;
   background: linear-gradient(135deg, 
-    rgba(26, 26, 46, 0.8), 
-    rgba(22, 33, 62, 0.8)
+    rgba(255, 255, 255, 0.95), 
+    rgba(255, 248, 225, 0.95)
   );
-  border: 3px solid var(--stone-gray);
-  border-radius: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 25px;
   text-decoration: none;
-  color: var(--cozy-cream);
-  transition: all 0.3s ease;
+  color: var(--text-dark);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
+  box-shadow: var(--shadow-md);
 }
 
 .social-card::before {
@@ -51,11 +52,12 @@
 }
 
 .social-card:hover {
-  border-color: var(--hover-color);
-  transform: translateY(-5px) scale(1.02);
+  border-color: var(--kawaii-pink);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    0 0 20px var(--hover-color);
+    0 12px 32px rgba(255, 182, 217, 0.25),
+    var(--shadow-glow),
+    inset 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .social-icon {
@@ -63,12 +65,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(244, 197, 66, 0.2);
-  border: 2px solid var(--grass-green);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, var(--pastel-yellow), var(--kawaii-pink));
+  border: none;
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon svg {
@@ -77,7 +80,8 @@
 }
 
 .social-card:hover .social-icon {
-  border-color: var(--hover-color);
+  transform: rotate(-8deg) scale(1.1);
+  box-shadow: var(--shadow-md);
   background: rgba(244, 197, 66, 0.4);
   transform: rotate(5deg) scale(1.1);
 }

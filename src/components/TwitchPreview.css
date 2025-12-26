@@ -2,29 +2,32 @@
   padding: var(--spacing-lg) 0;
   margin-bottom: var(--spacing-xl);
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .live-indicator {
   display: inline-block;
   margin-right: var(--spacing-sm);
   color: var(--stone-gray);
-  font-size: 0.8em;
+  font-size: 1em;
+  vertical-align: middle;
+  position: relative;
+  top: -19px;
   animation: pulse-slow 2s ease-in-out infinite;
 }
 
 .live-indicator.live {
-  color: #ff0000;
+  color: #cc0000;
   animation: pulse-live 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse-live {
   0%, 100% {
     opacity: 1;
-    text-shadow: 0 0 10px #ff0000;
   }
   50% {
     opacity: 0.6;
-    text-shadow: 0 0 20px #ff0000;
   }
 }
 
@@ -39,32 +42,37 @@
 
 .twitch-container {
   display: block;
-  text-decoration: none;
-  background: rgba(26, 26, 46, 0.6);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 248, 225, 1));
   padding: var(--spacing-md);
-  border: 3px solid var(--grass-green);
-  border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
-  cursor: pointer;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(15px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
 }
 
 .twitch-container:hover {
-  border-color: var(--emerald-green);
-  box-shadow: 0 15px 50px rgba(244, 197, 66, 0.4);
-  transform: translateY(-5px);
+  border-color: var(--lavender-pastel);
+  box-shadow: 
+    0 16px 48px rgba(225, 190, 231, 0.3),
+    var(--shadow-glow);
+  transform: translateY(-8px) scale(1.01);
 }
 
 .twitch-embed-wrapper {
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
   background: #000;
-  pointer-events: none;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .twitch-embed-wrapper iframe {
   display: block;
   border-radius: 10px;
+  width: 100%;
+  height: 500px;
 }
 
 /* Mobile responsive */

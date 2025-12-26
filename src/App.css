@@ -3,9 +3,6 @@
   min-height: 100vh;
   opacity: 0;
   transition: opacity 0.6s ease-in;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
 }
 
 .app.fade-in {
@@ -26,12 +23,13 @@
 
 .particle {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--grass-green);
-  opacity: 0.3;
+  width: 6px;
+  height: 6px;
+  background: var(--star-yellow);
+  opacity: 0.4;
   animation: float linear infinite;
-  box-shadow: 0 0 10px var(--grass-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--star-yellow), 0 0 16px rgba(255, 230, 130, 0.4);
 }
 
 @keyframes float {
@@ -64,8 +62,6 @@ section {
   margin-bottom: 0;
   animation: slideUp 0.6s ease-out forwards;
   opacity: 0;
-  scroll-snap-align: start;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,26 +105,34 @@ section:nth-child(4) { animation-delay: 0.4s; }
 .section-header {
   text-align: center;
   margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm) 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .section-header h2 {
-  font-size: clamp(1.2rem, 4vw, 2rem);
-  color: var(--cozy-cream);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--text-dark);
   margin-bottom: var(--spacing-sm);
-  text-shadow: 3px 3px 0 var(--grass-green);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  position: relative;
+  display: inline-block;
 }
 
 .header-line {
-  width: 100px;
+  width: 150px;
   height: 4px;
   background: linear-gradient(90deg, 
     transparent, 
-    var(--grass-green), 
-    var(--emerald-green), 
-    var(--grass-green), 
+    rgba(255, 182, 217, 0.8), 
+    rgba(225, 190, 231, 0.8), 
+    rgba(255, 182, 217, 0.8), 
     transparent
   );
   margin: 0 auto;
+  border-radius: 10px;
   animation: glow 2s ease-in-out infinite;
 }
 

@@ -1,10 +1,10 @@
 .footer {
   padding: var(--spacing-xl) 0 var(--spacing-xl) 0;
   margin-top: 120px;
-  border-top: 3px solid var(--grass-green);
+  border-top: 2px solid rgba(255, 182, 217, 0.3);
   background: linear-gradient(180deg, 
-    transparent, 
-    rgba(26, 26, 46, 0.5)
+    rgba(255, 249, 196, 0.3), 
+    rgba(255, 249, 196, 0.8)
   );
   scroll-snap-align: none;
   min-height: 200px;
@@ -19,14 +19,14 @@
 
 .footer-text {
   font-size: 1.1rem;
-  color: var(--grass-light);
+  color: #4a3424;
   margin-bottom: var(--spacing-sm);
   font-weight: 500;
 }
 
 .footer-copyright {
   font-size: 0.9rem;
-  color: var(--stone-gray);
+  color: #6b5b4f;
   opacity: 0.8;
 }
 

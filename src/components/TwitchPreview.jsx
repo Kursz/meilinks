@@ -7,13 +7,25 @@ function TwitchPreview() {
   const [isMuted, setIsMuted] = useState(true);
   const playerRef = useRef(null);
   const channelName = 'itsmeisol';
-  const parentDomain = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+  
+  // Get proper parent domain for Twitch embed
+  const getParentDomain = () => {
+    if (typeof window === 'undefined') return 'localhost';
+    const hostname = window.location.hostname;
+    return hostname || 'localhost';
+  };
+  
+  const parentDomain = getParentDomain();
 
   useEffect(() => {
     // Check if stream is live using Twitch embed
     // Note: For full API access, you'd need Twitch API credentials
     // This is a simplified version using the embed
     checkLiveStatus();
+    
+    // Debug: Log parent domain
+    console.log('Twitch embed parent domain:', parentDomain);
+    console.log('Iframe src:', `https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&muted=false&autoplay=true`);
     
     // Check every 2 minutes
     const interval = setInterval(checkLiveStatus, 120000);
@@ -48,10 +60,7 @@ function TwitchPreview() {
         <div className="header-line"></div>
       </div>
       
-      <a 
-        href={`https://www.twitch.tv/${channelName}`}
-        target="_blank"
-        rel="noopener noreferrer"
+      <div 
         className="twitch-container"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -60,16 +69,17 @@ function TwitchPreview() {
           <iframe
             key={isMuted ? 'muted' : 'unmuted'}
             ref={playerRef}
-            src={`https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&muted=${isMuted}&autoplay=true`}
+            src={`https://player.twitch.tv/?channel=${channelName}&parent=${parentDomain}&muted=true&autoplay=true`}
             height="500"
             width="100%"
             allowFullScreen={true}
+            allow="autoplay; fullscreen"
             frameBorder="0"
             scrolling="no"
             title="Twitch Stream"
           ></iframe>
         </div>
-      </a>
+      </div>
     </section>
   );
 }
