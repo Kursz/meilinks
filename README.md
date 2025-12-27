@@ -1,6 +1,6 @@
 # Meisol's Landing Page 
 
-My personal Minecraft-themed landing page.
+Meisol's personal Minecraft-themed landing page.
 
 ## Development
 
