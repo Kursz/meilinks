@@ -44,58 +44,6 @@
   text-align: center;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-}
-
-.gallery-item {
-  aspect-ratio: 1;
-  background: rgba(255, 255, 255, 0.8);
-  border: 3px solid rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.gallery-item:hover {
-  transform: translateY(-4px) scale(1.03);
-  border-color: var(--kawaii-pink);
-  box-shadow: 
-    0 8px 24px rgba(255, 182, 217, 0.3),
-    var(--shadow-glow);
-}
-
-.placeholder-image {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, 
-    rgba(139, 111, 71, 0.4), 
-    rgba(75, 52, 36, 0.4)
-  );
-  gap: 0.5rem;
-}
-
-.wip-icon {
-  font-size: 2rem;
-  filter: grayscale(100%);
-  opacity: 0.6;
-}
-
-.wip-text {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.6rem;
-  color: var(--grass-green);
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-}
-
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -143,20 +91,8 @@
 }
 
 @media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
   .about-card {
     padding: var(--spacing-md);
-  }
-
-  .wip-icon {
-    font-size: 1.5rem;
-  }
-
-  .wip-text {
-    font-size: 0.5rem;
   }
 }
 

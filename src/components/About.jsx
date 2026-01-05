@@ -2,14 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './About.css';
 
 function About() {
-  const slides = [
-    { id: 1, placeholder: 'Gallery Image 1' },
-    { id: 2, placeholder: 'Gallery Image 2' },
-    { id: 3, placeholder: 'Gallery Image 3' },
-    { id: 4, placeholder: 'Gallery Image 4' },
-    { id: 5, placeholder: 'Gallery Image 5' },
-  ];
-
   return (
     <section className="about">
       <div className="section-header">
@@ -24,17 +16,6 @@ function About() {
             <br /><br />
             If you decide to stay for the journey, I'd love to share laughs, good vibes, and genuine smiles with you. Let's enjoy the ride together and make every moment a little brighter and a lot more fun.
           </p>
-          
-          <div className="gallery">
-            {slides.map((slide) => (
-              <div key={slide.id} className="gallery-item">
-                <div className="placeholder-image">
-                  <span className="wip-icon">🖼️</span>
-                  <span className="wip-text">WIP</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
